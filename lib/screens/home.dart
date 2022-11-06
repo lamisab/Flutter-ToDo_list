@@ -1,10 +1,8 @@
 import 'dart:convert';
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_todo_app/Controller/homecontroller.dart';
 import 'package:get/get.dart';
-
 import '../model/todo.dart'; //تعريف المتغيرات
 import '../constants/colors.dart'; //colors
 import '../widgets/todo_item.dart'; //تصميم التاسكات
@@ -14,8 +12,6 @@ class Home extends StatelessWidget {
   final homeController controller = Get.put(homeController());
 
   @override
-  final todosList = ToDo.todoList();
-  List<ToDo> foundToDo = [];
   final _todoController = TextEditingController();
 
   @override
@@ -49,7 +45,7 @@ class Home extends StatelessWidget {
                             ),
                           ),
                         ),
-                        for (ToDo todoo in foundToDo.reversed)
+                        for (ToDo todoo in controller.todosList.reversed)
                           ToDoItem(
                             todo: todoo,
                             onToDoChanged: controller.handleToDoChange,
@@ -101,6 +97,7 @@ class Home extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
+                      print("gg");
                       controller.addToDoItem(_todoController.text);
                     },
                     style: ElevatedButton.styleFrom(

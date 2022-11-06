@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
+import '../Controller/homecontroller.dart';
 import '../model/todo.dart';
 import '../constants/colors.dart';
 
@@ -21,7 +24,7 @@ class ToDoItem extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 20),
       child: ListTile(
         onTap: () {
-          // print('Clicked on Todo Item.');
+          print('Clicked on Todo Item.');
           onToDoChanged(todo);
         },
         shape: RoundedRectangleBorder(
